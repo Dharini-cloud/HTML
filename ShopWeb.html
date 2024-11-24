@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxuryLANE E-Commerce</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  body {
+    background-color:bisque ;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  header {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  header nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  .carousel {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+  }
+  .carousel-item {
+    display: none;
+    flex: 1;
+    background-color: #ddd;
+    padding: 20px;
+  }
+  .carousel-item:first-child {
+    display: block;
+  }
+  .search-bar{
+  display: inline-block;
+  margin-left: 40%;
+  }
+  .search-bar input[type="text"]{
+  padding: 5px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid wheat;
+}
+.search-bar button{
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button:hover{
+  background-color: #777;
+}
+  .products {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .shirt{
+    width: 200px;
+    height:350px;
+    border: 3px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  .top{
+    width: 200px;
+    height:340px;
+    border: 3px solid black;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  .watch{
+    width: 200px;
+    height:350px;
+    border: 3px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  .shoe{
+    width: 200px;
+    height:350px;
+    border: 3px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+  }
+  .shirt:hover{
+    transform: scale(1.05);
+    box-shadow:black;
+  }
+  .top:hover{
+    transform: scale(1.05);
+    box-shadow:black;
+  }
+  .watch:hover{
+    transform: scale(1.05);
+    box-shadow:black;
+  }
+  .shoe:hover{
+    transform: scale(1.05);
+    box-shadow:black;
+  }
+  button {
+    background-color:black;
+    color: white;
+    border-radius:5px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    border:none;
+  }
+  
+  button:hover {
+    background-color: crimson;
+  }
+  #topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #topBtn:hover {
+    background-color: black;
+  }
+ .contact-section {
+ background: #f4f4f4;
+ padding: 2rem;
+ text-align: center; 
+ }
+  footer{
+    background-color:black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bolder;
+    position: fixed;
+    bottom:0px;
+    width:100%;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LuxuryLANE</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Service</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for products...">
+    <button onclick="searchProducts()">Search</button>
+  </div>
+  <section class="products">
+    <div class="shirt">
+      <h3>SHIRT</h3>
+      <img src="shirt1.webp" width="150" height="150" alt="Men's Shirt">
+      <p>$20.0</p>
+      <label>Quantity:</label>
+      <input type="number" id="quantity1" value="1" min="1">
+      <button onclick="addToCart(20, 'quantity1')">Add to cart</button>
+    </div>
+    <div class="top">
+      <h3>TOP</h3>
+      <img src="top.webp"  width="140" height="140" alt="Women's Top">
+      <p>$30.0</p>
+      <label>Quantity:</label>
+      <input type="number" id="quantity2" value="1" min="1">
+      <button onclick="addToCart(30, 'quantity2')">Add to cart</button>
+    </div>
+    <div class="watch">
+      <h3>WATCH</h3>
+      <img src="watches.jpg" width="150" height="150" alt="Watch">
+      <p>$50.0</p>
+      <label>Quantity:</label>
+      <input type="number" id="quantity3" value="1" min="1">
+      <button onclick="addToCart(50, 'quantity3')">Add to cart</button>
+    </div>
+    <div class="shoe">
+      <h3>SHOES</h3>
+      <img src="shoes.jpg" width="150" height="150" alt="Shoes">
+      <p>$10.0</p>
+      <label>Quantity:</label>
+      <input type="number" id="quantity4" value="1" min="1">
+      <button onclick="addToCart(10, 'quantity4')">Add to cart</button>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" id="topBtn">Top</button>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Location: 123 Model Town,Jalandhar<br>
+       Phone: (123) 456-7890<br>
+       Email: contact@LuxuryLane.com</p>
+  </section>
+
+  <footer>
+    <p>&copy Designed by LuxuryLANE</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+ 
+</body>
+</html>
